@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ECメルマガ デザインギャラリー — 島風生活</title>
+<style>
+  :root {
+    --bg: #f5f3ef;
+    --card-bg: #fff;
+    --text: #1a1a1a;
+    --text-sub: #6b6b6b;
+    --accent: #2b6b8a;
+    --accent-light: #e8f2f7;
+    --border: #e0ddd8;
+    --tag-food: #d4583a;
+    --tag-sale: #c9a227;
+    --tag-story: #3a7d5c;
+    --tag-rank: #6b4fa0;
+    --tag-new: #2b6b8a;
+    --tag-review: #8a5c2b;
+    --tag-recipe: #b85c8a;
+    --tag-sub: #5c6b8a;
+    --shadow: 0 2px 12px rgba(0,0,0,.06);
+    --radius: 12px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: "Hiragino Kaku Gothic ProN", "Noto Sans JP", -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── Header ─── */
+  .site-header {
+    background: #fff;
+    border-bottom: 1px solid var(--border);
+    padding: 20px 16px 16px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .site-header h1 {
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: .04em;
+    color: var(--accent);
+  }
+  .site-header p {
+    font-size: 11px;
+    color: var(--text-sub);
+    margin-top: 2px;
+  }
+
+  /* ─── Filter ─── */
+  .filter-bar {
+    padding: 12px 16px;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .filter-bar::-webkit-scrollbar { display: none; }
+  .filter-btn {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    background: #fff;
+    font-size: 12px;
+    color: var(--text-sub);
+    cursor: pointer;
+    margin-right: 6px;
+    transition: all .2s;
+    font-family: inherit;
+  }
+  .filter-btn:hover, .filter-btn.active {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+  }
+
+  /* ─── Gallery Grid ─── */
+  .gallery {
+    padding: 8px 12px 40px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  /* ─── Card ─── */
+  .card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: transform .2s, box-shadow .2s;
+  }
+  .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(0,0,0,.1);
+  }
+
+  .card-header {
+    padding: 16px 16px 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .card-header h2 {
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+  .card-header .tag {
+    font-size: 10px;
+    padding: 3px 8px;
+    border-radius: 10px;
+    color: #fff;
+    font-weight: 600;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-left: 8px;
+  }
+  .tag-food    { background: var(--tag-food); }
+  .tag-sale    { background: var(--tag-sale); }
+  .tag-story   { background: var(--tag-story); }
+  .tag-rank    { background: var(--tag-rank); }
+  .tag-new     { background: var(--tag-new); }
+  .tag-review  { background: var(--tag-review); }
+  .tag-recipe  { background: var(--tag-recipe); }
+  .tag-sub     { background: var(--tag-sub); }
+
+  .card-desc {
+    font-size: 12px;
+    color: var(--text-sub);
+    padding: 0 16px 12px;
+    line-height: 1.6;
+  }
+
+  /* ─── Mockup Area ─── */
+  .mockup-wrap {
+    padding: 0 16px 16px;
+  }
+  .mockup {
+    background: #fafaf8;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    font-size: 0;
+  }
+  .mockup-inner {
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  /* Mockup building blocks */
+  .m-block {
+    position: relative;
+    font-size: 11px;
+    color: var(--text-sub);
+    text-align: center;
+    border-bottom: 1px dashed #ddd;
+  }
+  .m-block:last-child { border-bottom: none; }
+  .m-block .label {
+    position: absolute;
+    left: 4px;
+    top: 4px;
+    font-size: 8px;
+    background: rgba(0,0,0,.06);
+    padding: 1px 5px;
+    border-radius: 3px;
+    color: #999;
+    font-weight: 600;
+    letter-spacing: .03em;
+  }
+
+  .m-header {
+    height: 36px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: .05em;
+  }
+
+  .m-hero {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 600;
+    color: #fff;
+    text-shadow: 0 1px 3px rgba(0,0,0,.3);
+  }
+
+  .m-text {
+    padding: 10px 12px;
+    font-size: 10px;
+    line-height: 1.6;
+    text-align: left;
+    color: #888;
+  }
+
+  .m-product {
+    display: flex;
+    padding: 10px 12px;
+    gap: 10px;
+    align-items: center;
+  }
+  .m-product-img {
+    width: 56px;
+    height: 56px;
+    border-radius: 6px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+  }
+  .m-product-info {
+    text-align: left;
+    font-size: 10px;
+    line-height: 1.5;
+  }
+  .m-product-info .name { font-weight: 600; color: var(--text); font-size: 11px; }
+  .m-product-info .price { color: var(--tag-food); font-weight: 700; }
+  .m-product-info .desc { color: #999; }
+
+  .m-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    padding: 10px 12px;
+  }
+  .m-grid-item {
+    border-radius: 6px;
+    padding: 8px;
+    text-align: center;
+    font-size: 9px;
+    line-height: 1.4;
+  }
+  .m-grid-item .img-placeholder {
+    width: 100%;
+    height: 48px;
+    border-radius: 4px;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+  }
+  .m-grid-item .name { font-weight: 600; color: var(--text); }
+  .m-grid-item .price { color: var(--tag-food); font-weight: 700; font-size: 10px; }
+
+  .m-cta {
+    padding: 10px 12px;
+    text-align: center;
+  }
+  .m-cta-btn {
+    display: inline-block;
+    padding: 8px 28px;
+    border-radius: 20px;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .04em;
+  }
+
+  .m-footer {
+    height: 32px;
+    background: #f0eeea;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8px;
+    color: #bbb;
+  }
+
+  .m-ranking-item {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    gap: 10px;
+    border-bottom: 1px dashed #eee;
+  }
+  .m-ranking-item:last-child { border-bottom: none; }
+  .m-rank-num {
+    font-size: 18px;
+    font-weight: 800;
+    width: 24px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+  .m-rank-num.r1 { color: #c9a227; }
+  .m-rank-num.r2 { color: #8a8a8a; }
+  .m-rank-num.r3 { color: #a0673a; }
+
+  .m-divider {
+    height: 1px;
+    background: #eee;
+    margin: 0 12px;
+  }
+
+  .m-banner {
+    padding: 10px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: .06em;
+  }
+
+  .m-countdown {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    padding: 6px 12px;
+  }
+  .m-countdown-box {
+    width: 36px;
+    height: 36px;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 1;
+  }
+  .m-countdown-box small {
+    font-size: 6px;
+    font-weight: 400;
+    margin-top: 2px;
+  }
+
+  .m-review {
+    padding: 10px 12px;
+    text-align: left;
+  }
+  .m-review-stars {
+    color: #c9a227;
+    font-size: 12px;
+    margin-bottom: 4px;
+  }
+  .m-review-text {
+    font-size: 10px;
+    color: #666;
+    line-height: 1.6;
+    font-style: italic;
+    background: #f9f8f5;
+    padding: 8px;
+    border-radius: 6px;
+    border-left: 3px solid #c9a227;
+  }
+  .m-review-author {
+    font-size: 9px;
+    color: #999;
+    text-align: right;
+    margin-top: 4px;
+  }
+
+  .m-recipe-steps {
+    padding: 8px 12px;
+    text-align: left;
+  }
+  .m-recipe-step {
+    display: flex;
+    gap: 6px;
+    align-items: flex-start;
+    margin-bottom: 6px;
+    font-size: 10px;
+    color: #666;
+  }
+  .m-recipe-step .step-num {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 9px;
+    font-weight: 700;
+    color: #fff;
+    flex-shrink: 0;
+  }
+
+  .m-sub-box {
+    margin: 8px 12px;
+    border: 2px dashed;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+  }
+
+  /* ─── Structure Panel ─── */
+  .structure {
+    padding: 12px 16px 16px;
+    border-top: 1px solid var(--border);
+  }
+  .structure summary {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--accent);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .structure summary::before {
+    content: "▸";
+    transition: transform .2s;
+  }
+  .structure[open] summary::before {
+    transform: rotate(90deg);
+  }
+  .structure-list {
+    margin-top: 8px;
+    padding-left: 0;
+    list-style: none;
+  }
+  .structure-list li {
+    font-size: 11px;
+    color: var(--text-sub);
+    padding: 3px 0 3px 16px;
+    position: relative;
+    line-height: 1.5;
+  }
+  .structure-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 8px;
+    height: 2px;
+    background: var(--border);
+  }
+  .structure-list li strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  /* ─── Use-case badge ─── */
+  .use-case {
+    padding: 0 16px 14px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+  .use-badge {
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: var(--accent-light);
+    color: var(--accent);
+    font-weight: 500;
+  }
+
+  /* ─── Responsive ─── */
+  @media (min-width: 560px) {
+    .gallery {
+      grid-template-columns: 1fr 1fr;
+      padding: 16px;
+    }
+    .site-header { padding: 24px 24px 18px; }
+    .site-header h1 { font-size: 18px; }
+    .filter-bar { padding: 14px 24px; }
+  }
+  @media (min-width: 900px) {
+    .gallery {
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 24px;
+      padding: 24px;
+    }
+    .site-header { padding: 28px 32px 20px; }
+    .site-header h1 { font-size: 20px; }
+    .filter-bar { padding: 16px 32px; }
+  }
+
+  /* ─── Scroll top ─── */
+  .scroll-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,.2);
+    opacity: 0;
+    transition: opacity .3s;
+    z-index: 200;
+  }
+  .scroll-top.show { opacity: 1; }
+
+  /* ─── Shimakaze note ─── */
+  .note-section {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 12px 32px;
+  }
+  .note-card {
+    background: var(--accent-light);
+    border: 1px solid #c8dfe8;
+    border-radius: var(--radius);
+    padding: 20px;
+  }
+  .note-card h3 {
+    font-size: 13px;
+    color: var(--accent);
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+  .note-card ul {
+    padding-left: 18px;
+    font-size: 12px;
+    color: var(--text-sub);
+    line-height: 1.8;
+  }
+  .note-card ul li strong { color: var(--text); }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <h1>ECメルマガ デザインギャラリー</h1>
+  <p>島風生活 — メルマガリニューアルのための情報構造リファレンス</p>
+</header>
+
+<nav class="filter-bar" id="filterBar">
+  <button class="filter-btn active" data-filter="all">すべて</button>
+  <button class="filter-btn" data-filter="food">商品紹介</button>
+  <button class="filter-btn" data-filter="sale">セール</button>
+  <button class="filter-btn" data-filter="story">ストーリー</button>
+  <button class="filter-btn" data-filter="rank">ランキング</button>
+  <button class="filter-btn" data-filter="new">新着</button>
+  <button class="filter-btn" data-filter="recipe">レシピ</button>
+  <button class="filter-btn" data-filter="review">お客様の声</button>
+  <button class="filter-btn" data-filter="sub">定期便</button>
+</nav>
+
+<main class="gallery" id="gallery">
+
+  <!-- ========== 1. シンプル単品紹介型 ========== -->
+  <article class="card" data-category="food">
+    <div class="card-header">
+      <h2>シンプル単品紹介型</h2>
+      <span class="tag tag-food">商品紹介</span>
+    </div>
+    <p class="card-desc">1つの商品を丁寧に訴求。写真・説明・CTAの直線的な流れで迷わせない構成。</p>
+    <div class="mockup-wrap">
+      <div class="mockup">
+        <div class="mockup-inner">
+          <div class="m-header">
+            <span class="label">HEADER</span>
+            島風生活
+          </div>
+          <div class="m-hero" style="background: linear-gradient(135deg, #3a7d9c, #2b6b8a);">
+            <span class="label" style="color:#fff;background:rgba(255,255,255,.2)">HERO</span>
+            今週のおすすめ
+          </div>
+          <div class="m-product">
+            <div class="m-product-img" style="background:#e8f2f7;">🐟</div>
+            <div class="m-product-info">
+              <div class="name">島の干物セット</div>
+              <div class="desc">職人が一枚一枚手開き</div>
+              <div class="price">¥3,480（税込）</div>
+            </div>
+          </div>
+          <div class="m-text">
+            丁寧に塩水に漬け、島の潮風でじっくり干し上げました。朝食にもお酒のお供にも。
+          </div>
+          <div class="m-cta">
+            <span class="m-cta-btn" style="background:var(--accent);">詳しく見る →</span>
+          </div>
+          <div class="m-footer">© 島風生活 | 配信停止</div>
+        </div>
+      </div>
+    </div>
+    <div class="use-case">
+      <span class="use-badge">週次配信</span>
+      <span class="use-badge">定番品の訴求</span>
+      <span class="use-badge">初心者向き</span>
+    </div>
+    <details class="structure">
+      <summary>情報構造を見る</summary>
+      <ol class="structure-list">
+        <li><strong>ヘッダー</strong> — ロゴ / ブランド名</li>
+        <li><strong>ヒーローエリア</strong> — 季節感あるキャッチコピー</li>
+        <li><strong>商品ブロック</strong> — 写真 + 名前 + 価格</li>
+        <li><strong>テキスト</strong> — 商品ストーリー（2〜3行）</li>
+        <li><strong>CTA</strong> — 「詳しく見る」ボタン</li>
+        <li><strong>フッター</strong> — 配信停止リンク</li>
+      </ol>
+    </details>
+  </article>
+
+  <!-- ========== 2. 商品グリッド型 ========== -->
+  <article class="card" data-category="food">
+    <div class="card-header">
+      <h2>商品グリッド型</h2>
+      <span class="tag tag-food">商品紹介</span>
+    </div>
+    <p class="card-desc">複数商品を一覧で見せる。季節のおすすめや週間ピックアップに最適。</p>
+    <div class="mockup-wrap">
+      <div class="mockup">
+        <div class="mockup-inner">
+          <div class="m-header">
+            <span class="label">HEADER</span>
+            島風生活
+          </div>
+          <div class="m-text" style="text-align:center;font-weight:600;font-size:11px;color:var(--text);">
+            <span class="label">INTRO</span>
+            🌊 今月のおすすめ4選
+          </div>
+          <div class="m-grid">
+            <div class="m-grid-item" style="background:#f5f0eb;">
+              <div class="img-placeholder" style="background:#ebe3d9;">🦐</div>
+              <div class="name">島エビの塩辛</div>
+              <div class="price">¥1,280</div>
+            </div>
+            <div class="m-grid-item" style="background:#edf5f0;">
+              <div class="img-placeholder" style="background:#d9ebe3;">🐙</div>
+              <div class="name">たこの燻製</div>
+              <div class="price">¥1,480</div>
+            </div>
+            <div class="m-grid-item" style="background:#f0edf5;">
+              <div class="img-placeholder" style="background:#e3d9eb;">🦪</div>
+              <div class="name">牡蠣の佃煮</div>
+              <div class="price">¥1,680</div>
+            </div>
+            <div class="m-grid-item" style="background:#f5f0ed;">
+              <div class="img-placeholder" style="background:#ebe3d9;">🐟</div>
+              <div class="name">鯛の味噌漬</div>
+              <div class="price">¥2,180</div>
+            </div>
+          </div>
+          <div class="m-cta">
+            <span class="m-cta-btn" style="background:var(--accent);">全商品を見る →</span>
+          </div>
+          <div class="m-footer">© 島風生活 | 配信停止</div>
+        </div>
+      </div>
+    </div>
+    <div class="use-case">
+      <span class="use-badge">月次配信</span>
+      <span class="use-badge">季節の切替</span>
+      <span class="use-badge">まとめ買い促進</span>
+    </div>
+    <details class="structure">
+      <summary>情報構造を見る</summary>
+      <ol class="structure-list">
+        <li><strong>ヘッダー</strong> — ロゴ</li>
+        <li><strong>イントロ</strong> — テーマ名（例「今月のおすすめ4選」）</li>
+        <li><strong>商品グリッド（2列）</strong> — 各商品：写真 + 名前 + 価格</li>
+        <li><strong>CTA</strong> — 「全商品を見る」ボタン</li>
+        <li><strong>フッター</strong></li>
+      </ol>
+    </details>
+  </article>
+
+  <!-- ========== 3. ストーリー / 生産者紹介型 ========== -->
+  <article class="card" data-category="story">
+    <div class="card-header">
+      <h2>ストーリー・生産者紹介型</h2>
+      <span class="tag tag-story">ストーリー</span>
+    </div>
+    <p class="card-desc">生産者の想いや製法を伝えることで共感を生み、購買につなげるエディトリアル型。</p>
+    <div class="mockup-wrap">
+      <div class="mockup">
+        <div class="mockup-inner">
+          <div class="m-header">
+            <span class="label">HEADER</span>
+            島風生活
+          </div>
+          <div class="m-hero" style="background: linear-gradient(135deg, #3a7d5c, #2a5c42);">
+            <span class="label" style="color:#fff;background:rgba(255,255,255,.2)">HERO IMAGE</span>
+            生産者のこだわり
+          </div>
+          <div class="m-text" style="font-size:11px;color:#555;">
+            <span class="label">STORY</span>
+            <strong style="color:var(--text);display:block;margin-bottom:4px;">漁師・田中さんの一日</strong>
+            朝4時、まだ暗い港を出る。50年続く漁法を守りながら、一本釣りで丁寧に…
+          </div>
+          <div class="m-divider"></div>
+          <div class="m-product">
+            <div class="m-product-img" style="background:#e8f5ee;">🎣</div>
+            <div class="m-product-info">
+              <div class="name">田中さんの一本釣り鯵</div>
+              <div class="desc">朝獲れを即日加工</div>
+              <div class="price">¥2,980</div>
+            </div>
+          </div>
+          <div class="m-cta">
+            <span class="m-cta-btn" style="background:#3a7d5c;">この商品を見る →</span>
+          </div>
+          <div class="m-footer">© 島風生活 | 配信停止</div>
+        </div>
+      </div>
+    </div>
+    <div class="use-case">
+      <span class="use-badge">ブランディング</span>
+      <span class="use-badge">高単価商品</span>
+      <span class="use-badge">差別化</span>
+    </div>
+    <details class="structure">
+      <summary>情報構造を見る</summary>
+      <ol class="structure-list">
+        <li><strong>ヘッダー</strong> — ロゴ</li>
+        <li><strong>ヒーロー写真</strong> — 生産者や風景のイメージ</li>
+        <li><strong>ストーリー文</strong> — 見出し + 本文（150〜250字）</li>
+        <li><strong>区切り線</strong></li>
+        <li><strong>商品ブロック</strong> — 写真 + 名前 + 価格</li>
+        <li><strong>CTA</strong></li>
+        <li><strong>フッター</strong></li>
+      </ol>
+    </details>
+  </article>
+
+  <!-- ========== 4. セール・キャンペーン型 ========== -->
+  <article class="card" data-category="sale">
+    <div class="card-header">
+      <h2>セール・キャンペーン型</h2>
+      <span class="tag tag-sale">セール</span>
+    </div>
+    <p class="card-desc">期間限定の緊急感を演出。カウントダウンと値引き表示でコンバージョンを狙う。</p>
+    <div class="mockup-wrap">
+      <div class="mockup">
+        <div class="mockup-inner">
+          <div class="m-header">
+            <span class="label">HEADER</span>
+            島風生活
+          </div>
+          <div class="m-banner" style="background:linear-gradient(135deg,#c9a227,#d4a520);color:#fff;">
+            <span class="label" style="color:#fff;background:rgba(255,255,255,.2)">BANNER</span>
+            🎉 春の感謝セール 最大30%OFF
+          </div>
+          <div class="m-countdown">
+            <div class="m-countdown-box" style="background:#fff8e0;color:#c9a227;">02<small>日</small></div>
+            <div class="m-countdown-box" style="background:#fff8e0;color:#c9a227;">14<small>時</small></div>
+            <div class="m-countdown-box" style="background:#fff8e0;color:#c9a227;">38<small>分</small></div>
+          </div>
+          <div class="m-product">
+            <div class="m-product-img" style="background:#fff8e0;">🦀</div>
+            <div class="m-product-info">
+              <div class="name">特選カニ味噌甲羅焼き</div>
+              <div class="desc"><s style="color:#bbb;">¥4,200</s></div>
+              <div class="price" style="font-size:12px;">¥2,940（30%OFF）</div>
+            </div>
+          </div>
+          <div class="m-cta">
+            <span class="m-cta-btn" style="background:#c9a227;">セール会場へ →</span>
+          </div>
+          <div class="m-footer">© 島風生活 | 配信停止</div>
+        </div>
+      </div>
+    </div>
+    <div class="use-case">
+      <span class="use-badge">期間限定</span>
+      <span class="use-badge">在庫処分</span>
+      <span class="use-badge">CVR重視</span>
+    </div>
+    <details class="structure">
+      <summary>情報構造を見る</summary>
+      <ol class="structure-list">
+        <li><strong>ヘッダー</strong> — ロゴ</li>
+        <li><strong>セールバナー</strong> — 割引率 + キャンペーン名</li>
+        <li><strong>カウントダウン</strong> — 残り日 / 時 / 分</li>
+        <li><strong>目玉商品</strong> — 写真 + 元価格 + セール価格</li>
+        <li><strong>CTA</strong> — セール会場へ誘導</li>
+        <li><strong>フッター</strong></li>
+      </ol>
+    </details>
+  </article>
+
+  <!-- ========== 5. ランキング型 ========== -->
+  <article class="card" data-category="rank">
+    <div class="card-header">
+      <h2>ランキング型</h2>
+      <span class="tag tag-rank">ランキング</span>
+    </div>
+    <p class="card-desc">人気順で社会的証明を活用。「みんなが買ってる」安心感で購買を後押し。</p>
+    <div class="mockup-wrap">
+      <div class="mockup">
+        <div class="mockup-inner">
+          <div class="m-header">
+            <span class="label">HEADER</span>
+            島風生活
+          </div>
+          <div class="m-text" style="text-align:center;font-weight:700;font-size:12px;color:var(--tag-rank);">
+            <span class="label">TITLE</span>
+            👑 今月の人気ランキング
+          </div>
+          <div class="m-block" style="padding:0;">
+            <div class="m-ranking-item">
+              <span class="m-rank-num r1">1</span>
+              <div class="m-product-img" style="background:#fff8e0;width:40px;height:40px;font-size:14px;">🐟</div>
+              <div class="m-product-info">
+                <div class="name">島の干物セット</div>
+                <div class="price">¥3,480</div>
+              </div>
+            </div>
+            <div class="m-ranking-item">
+              <span class="m-rank-num r2">2</span>
+              <div class="m-product-img" style="background:#f0f0f0;width:40px;height:40px;font-size:14px;">🦐</div>
+              <div class="m-product-info">
+                <div class="name">車エビの塩辛</div>
+                <div class="price">¥1,280</div>
+              </div>
+            </div>
+            <div class="m-ranking-item">
+              <span class="m-rank-num r3">3</span>
+              <div class="m-product-img" style="background:#f5efe8;width:40px;height:40px;font-size:14px;">🦪</div>
+              <div class="m-product-info">
+                <div class="name">牡蠣の佃煮</div>
+                <div class="price">¥1,680</div>
+              </div>
+            </div>
+          </div>
+          <div class="m-cta">
+            <span class="m-cta-btn" style="background:var(--tag-rank);">ランキングを全部見る →</span>
+          </div>
+          <div class="m-footer">© 島風生活 | 配信停止</div>
+        </div>
+      </div>
+    </div>
+    <div class="use-case">
+      <span class="use-badge">月次配信</span>
+      <span class="use-badge">社会的証明</span>
+      <span class="use-badge">定期コンテンツ</span>
+    </div>
+    <details class="structure">
+      <summary>情報構造を見る</summary>
+      <ol class="structure-list">
+        <li><strong>ヘッダー</strong> — ロゴ</li>
+        <li><strong>ランキングタイトル</strong> — 「今月の人気ランキング」</li>
+        <li><strong>ランキングリスト</strong> — 各行：順位 + 写真 + 名前 + 価格</li>
+        <li><strong>CTA</strong> — 全ランキングへ誘導</li>
+        <li><strong>フッター</strong></li>
+      </ol>
+    </details>
+  </article>
+
+  <!-- ========== 6. 新着・入荷お知らせ型 ========== -->
+  <article class="card" data-category="new">
+    <div class="card-header">
+      <h2>新着・入荷お知らせ型</h2>
+      <span class="tag tag-new">新着</span>
+    </div>
+    <p class="card-desc">新商品や再入荷のスピード告知。鮮度感と希少性で開封直後のクリックを狙う。</p>
+    <div class="mockup-wrap">
+      <div class="mockup">
+        <div class="mockup-inner">
+          <div class="m-header">
+            <span class="label">HEADER</span>
+            島風生活
+          </div>
+          <div class="m-banner" style="background:var(--accent);color:#fff;font-size:12px;">
+            <span class="label" style="color:#fff;background:rgba(255,255,255,.2)">NEW</span>
+            ✨ 新商品のお知らせ
+          </div>
+          <div class="m-hero" style="background: linear-gradient(135deg, #2b6b8a, #1a4a5c);height:80px;">
+            🆕 数量限定
+          </div>
+          <div class="m-product">
+            <div class="m-product-img" style="background:#e8f2f7;">🐡</div>
+            <div class="m-product-info">
+              <div class="name">島ふぐの一夜干し</div>
+              <div class="desc">初登場 — 限定100セット</div>
+              <div class="price">¥4,980</div>
+            </div>
+          </div>
+          <div class="m-text">
+            島の漁師が丹精込めて育てたトラフグを、絶妙な塩加減で一夜干しに。
+          </div>
+          <div class="m-cta">
+            <span class="m-cta-btn" style="background:var(--accent);">いち早くチェック →</span>
+          </div>
+          <div class="m-footer">© 島風生活 | 配信停止</div>
+        </div>
+      </div>
+    </div>
+    <div class="use-case">
+      <span class="use-badge">随時配信</span>
+      <span class="use-badge">限定感</span>
+      <span class="use-badge">即時性</span>
+    </div>
+    <details class="structure">
+      <summary>情報構造を見る</summary>
+      <ol class="structure-list">
+        <li><strong>ヘッダー</strong> — ロゴ</li>
+        <li><strong>お知らせバナー</strong> — 「新商品」「再入荷」の大見出し</li>
+        <li><strong>限定感の演出</strong> — 「数量限定」ラベル</li>
+        <li><strong>商品ブロック</strong> — 写真 + 名前 + 限定表記 + 価格</li>
+        <li><strong>商品紹介テキスト</strong> — 1〜2行の短い説明</li>
+        <li><strong>CTA</strong></li>
+        <li><strong>フッター</strong></li>
+      </ol>
+    </details>
+  </article>
+
+  <!-- ========== 7. レシピ＋商品型 ========== -->
+  <article class="card" data-category="recipe">
+    <div class="card-header">
+      <h2>レシピ＋商品連動型</h2>
+      <span class="tag tag-recipe">レシピ</span>
+    </div>
+    <p class="card-desc">「使い方」を提案して購買障壁を下げる。食品ECとの相性が抜群のパターン。</p>
+    <div class="mockup-wrap">
+      <div class="mockup">
+        <div class="mockup-inner">
+          <div class="m-header">
+            <span class="label">HEADER</span>
+            島風生活
+          </div>
+          <div class="m-hero" style="background:linear-gradient(135deg,#b85c8a,#8a3a5c);height:80px;font-size:11px;">
+            <span class="label" style="color:#fff;background:rgba(255,255,255,.2)">RECIPE HERO</span>
+            🍳 島の食卓レシピ
+          </div>
+          <div class="m-text" style="font-weight:600;font-size:11px;color:var(--text);text-align:center;">
+            干物のアクアパッツァ風
+          </div>
+          <div class="m-recipe-steps">
+            <div class="m-recipe-step">
+              <span class="step-num" style="background:var(--tag-recipe);">1</span>
+              干物を軽く焼く
+            </div>
+            <div class="m-recipe-step">
+              <span class="step-num" style="background:var(--tag-recipe);">2</span>
+              トマトとオリーブを加えて蒸す
+            </div>
+            <div class="m-recipe-step">
+              <span class="step-num" style="background:var(--tag-recipe);">3</span>
+              白ワインで仕上げ、完成！
+            </div>
+          </div>
+          <div class="m-divider"></div>
+          <div class="m-product">
+            <div class="m-product-img" style="background:#f8e8f0;">🐟</div>
+            <div class="m-product-info">
+              <div class="name">このレシピに使った商品</div>
+              <div class="desc">島の干物セット</div>
+              <div class="price">¥3,480</div>
+            </div>
+          </div>
+          <div class="m-cta">
+            <span class="m-cta-btn" style="background:var(--tag-recipe);">商品を見る →</span>
+          </div>
+          <div class="m-footer">© 島風生活 | 配信停止</div>
+        </div>
+      </div>
+    </div>
+    <div class="use-case">
+      <span class="use-badge">食品EC最適</span>
+      <span class="use-badge">コンテンツ資産</span>
+      <span class="use-badge">SNS転用可</span>
+    </div>
+    <details class="structure">
+      <summary>情報構造を見る</summary>
+      <ol class="structure-list">
+        <li><strong>ヘッダー</strong> — ロゴ</li>
+        <li><strong>レシピヒーロー</strong> — 料理写真 + レシピ連載名</li>
+        <li><strong>レシピ名</strong> — 見出し</li>
+        <li><strong>手順リスト</strong> — 番号付きステップ（3〜5工程）</li>
+        <li><strong>区切り</strong></li>
+        <li><strong>関連商品</strong> — 「このレシピに使った商品」</li>
+        <li><strong>CTA</strong></li>
+        <li><strong>フッター</strong></li>
+      </ol>
+    </details>
+  </article>
+
+  <!-- ========== 8. お客様の声型 ========== -->
+  <article class="card" data-category="review">
+    <div class="card-header">
+      <h2>お客様の声＋商品型</h2>
+      <span class="tag tag-review">お客様の声</span>
+    </div>
+    <p class="card-desc">リアルなレビューで信頼感を醸成。口コミから商品へ自然に誘導する構成。</p>
+    <div class="mockup-wrap">
+      <div class="mockup">
+        <div class="mockup-inner">
+          <div class="m-header">
+            <span class="label">HEADER</span>
+            島風生活
+          </div>
+          <div class="m-text" style="text-align:center;font-weight:700;font-size:12px;color:var(--tag-review);">
+            <span class="label">TITLE</span>
+            💬 お客様の声をご紹介
+          </div>
+          <div class="m-review">
+            <div class="m-review-stars">★★★★★</div>
+            <div class="m-review-text">
+              「お歳暮に送ったら大変喜ばれました。身がふっくらしていて、スーパーの干物とは全然違います！」
+            </div>
+            <div class="m-review-author">— 東京都 K.S 様（50代女性）</div>
+          </div>
+          <div class="m-divider"></div>
+          <div class="m-product">
+            <div class="m-product-img" style="background:#f5efe5;">🐟</div>
+            <div class="m-product-info">
+              <div class="name">島の干物セット</div>
+              <div class="desc">レビュー平均 ★4.8</div>
+              <div class="price">¥3,480</div>
+            </div>
+          </div>
+          <div class="m-cta">
+            <span class="m-cta-btn" style="background:var(--tag-review);">この商品を見る →</span>
+          </div>
+          <div class="m-footer">© 島風生活 | 配信停止</div>
+        </div>
+      </div>
+    </div>
+    <div class="use-case">
+      <span class="use-badge">信頼構築</span>
+      <span class="use-badge">ギフト訴求</span>
+      <span class="use-badge">UGC活用</span>
+    </div>
+    <details class="structure">
+      <summary>情報構造を見る</summary>
+      <ol class="structure-list">
+        <li><strong>ヘッダー</strong> — ロゴ</li>
+        <li><strong>セクションタイトル</strong> — 「お客様の声」</li>
+        <li><strong>レビューブロック</strong> — 星評価 + 引用テキスト + 投稿者</li>
+        <li><strong>区切り</strong></li>
+        <li><strong>関連商品</strong> — レビュー元の商品</li>
+        <li><strong>CTA</strong></li>
+        <li><strong>フッター</strong></li>
+      </ol>
+    </details>
+  </article>
+
+  <!-- ========== 9. 定期便・頒布会案内型 ========== -->
+  <article class="card" data-category="sub">
+    <div class="card-header">
+      <h2>定期便・頒布会型</h2>
+      <span class="tag tag-sub">定期便</span>
+    </div>
+    <p class="card-desc">サブスク型の継続購入を促進。「届く楽しみ」をビジュアルで訴求。</p>
+    <div class="mockup-wrap">
+      <div class="mockup">
+        <div class="mockup-inner">
+          <div class="m-header">
+            <span class="label">HEADER</span>
+            島風生活
+          </div>
+          <div class="m-hero" style="background:linear-gradient(135deg,#5c6b8a,#3a4a6b);height:80px;font-size:11px;">
+            <span class="label" style="color:#fff;background:rgba(255,255,255,.2)">CONCEPT</span>
+            📦 毎月届く、島の恵み
+          </div>
+          <div class="m-sub-box" style="border-color:var(--tag-sub);color:var(--tag-sub);">
+            <div style="font-weight:700;font-size:11px;margin-bottom:4px;">3月のお届け内容</div>
+            <div style="font-size:10px;color:#888;">🐟 鯛の味噌漬 / 🦐 桜エビ / 🌊 もずく</div>
+          </div>
+          <div class="m-text" style="text-align:center;">
+            <div style="font-size:10px;color:#999;">毎月届いて</div>
+            <div style="font-size:16px;font-weight:800;color:var(--tag-sub);">月々 ¥3,980</div>
+            <div style="font-size:9px;color:#bbb;">送料無料 / いつでも解約OK</div>
+          </div>
+          <div class="m-cta">
+            <span class="m-cta-btn" style="background:var(--tag-sub);">定期便を申し込む →</span>
+          </div>
+          <div class="m-footer">© 島風生活 | 配信停止</div>
+        </div>
+      </div>
+    </div>
+    <div class="use-case">
+      <span class="use-badge">LTV向上</span>
+      <span class="use-badge">サブスク</span>
+      <span class="use-badge">継続率改善</span>
+    </div>
+    <details class="structure">
+      <summary>情報構造を見る</summary>
+      <ol class="structure-list">
+        <li><strong>ヘッダー</strong> — ロゴ</li>
+        <li><strong>コンセプトビジュアル</strong> — 定期便イメージ</li>
+        <li><strong>お届け内容ボックス</strong> — 今月届く商品一覧</li>
+        <li><strong>価格・条件</strong> — 月額 / 送料 / 解約条件</li>
+        <li><strong>CTA</strong> — 「申し込む」ボタン</li>
+        <li><strong>フッター</strong></li>
+      </ol>
+    </details>
+  </article>
+
+  <!-- ========== 10. 季節の挨拶＋おすすめ型 ========== -->
+  <article class="card" data-category="story">
+    <div class="card-header">
+      <h2>季節の挨拶＋おすすめ型</h2>
+      <span class="tag tag-story">ストーリー</span>
+    </div>
+    <p class="card-desc">季節の便りとして親しみを演出。メルマガの開封率を維持するブランド資産型。</p>
+    <div class="mockup-wrap">
+      <div class="mockup">
+        <div class="mockup-inner">
+          <div class="m-header">
+            <span class="label">HEADER</span>
+            島風生活
+          </div>
+          <div class="m-hero" style="background:linear-gradient(135deg,#e8a0b0,#d4583a);height:80px;font-size:11px;">
+            <span class="label" style="color:#fff;background:rgba(255,255,255,.2)">SEASONAL</span>
+            🌸 春の便り
+          </div>
+          <div class="m-text" style="font-size:11px;color:#666;">
+            <span class="label">GREETING</span>
+            島にも桜が咲き始めました。暖かくなると魚たちも活発に。この時期ならではの旬の味覚をお届けします。
+          </div>
+          <div class="m-grid" style="grid-template-columns: 1fr 1fr;">
+            <div class="m-grid-item" style="background:#fdf0f2;">
+              <div class="img-placeholder" style="background:#f8dde3;">🌸</div>
+              <div class="name">桜鯛の刺身</div>
+              <div class="price">¥2,480</div>
+            </div>
+            <div class="m-grid-item" style="background:#f0f5ed;">
+              <div class="img-placeholder" style="background:#dde8d9;">🦐</div>
+              <div class="name">春の桜エビ</div>
+              <div class="price">¥1,880</div>
+            </div>
+          </div>
+          <div class="m-cta">
+            <span class="m-cta-btn" style="background:var(--tag-food);">春の特集を見る →</span>
+          </div>
+          <div class="m-footer">© 島風生活 | 配信停止</div>
+        </div>
+      </div>
+    </div>
+    <div class="use-case">
+      <span class="use-badge">開封率維持</span>
+      <span class="use-badge">季節の変わり目</span>
+      <span class="use-badge">ファン化</span>
+    </div>
+    <details class="structure">
+      <summary>情報構造を見る</summary>
+      <ol class="structure-list">
+        <li><strong>ヘッダー</strong> — ロゴ</li>
+        <li><strong>季節ビジュアル</strong> — 季節のイメージ写真</li>
+        <li><strong>季節の挨拶文</strong> — 2〜3行の親しみある文章</li>
+        <li><strong>おすすめ商品グリッド</strong> — 2列で旬の商品を並べる</li>
+        <li><strong>CTA</strong> — 特集ページへ誘導</li>
+        <li><strong>フッター</strong></li>
+      </ol>
+    </details>
+  </article>
+
+</main>
+
+<!-- ─── 島風生活向けノート ─── -->
+<section class="note-section">
+  <div class="note-card">
+    <h3>島風生活への活用メモ</h3>
+    <ul>
+      <li><strong>レシピ型</strong>は水産加工品との相性が非常に高い。「使い方がわからない」という購買障壁を下げる効果あり</li>
+      <li><strong>ストーリー型</strong>で漁師さんや島の暮らしを紹介すると、ブランドの世界観を構築できる</li>
+      <li><strong>ランキング型</strong>は月1配信の定番コンテンツとして開封率が安定しやすい</li>
+      <li><strong>セール型</strong>は年2〜3回の大型セールに限定すると効果が高い（頻発するとブランド毀損）</li>
+      <li>基本構成は <strong>ヘッダー → メインコンテンツ → 商品 → CTA → フッター</strong> の5層構造を崩さない</li>
+      <li>メルマガの幅は <strong>600px以下</strong> を推奨（メールクライアント対応）</li>
+    </ul>
+  </div>
+</section>
+
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+// Filter
+const filterBar = document.getElementById('filterBar');
+const cards = document.querySelectorAll('.card');
+
+filterBar.addEventListener('click', (e) => {
+  if (!e.target.classList.contains('filter-btn')) return;
+  const filter = e.target.dataset.filter;
+
+  filterBar.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  e.target.classList.add('active');
+
+  cards.forEach(card => {
+    if (filter === 'all' || card.dataset.category === filter) {
+      card.style.display = '';
+    } else {
+      card.style.display = 'none';
+    }
+  });
+});
+
+// Scroll top button
+window.addEventListener('scroll', () => {
+  document.getElementById('scrollTop').classList.toggle('show', window.scrollY > 400);
+});
+</script>
+
+</body>
+</html>
