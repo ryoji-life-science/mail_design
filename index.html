@@ -478,6 +478,7 @@
     .site-header { padding: 24px 24px 18px; }
     .site-header h1 { font-size: 18px; }
     .filter-bar { padding: 14px 24px; }
+    .note-section { padding: 0 16px 16px; }
   }
   @media (min-width: 900px) {
     .gallery {
@@ -488,6 +489,7 @@
     .site-header { padding: 28px 32px 20px; }
     .site-header h1 { font-size: 20px; }
     .filter-bar { padding: 16px 32px; }
+    .note-section { padding: 0 24px 20px; }
   }
 
   /* ─── Scroll top ─── */
@@ -1160,8 +1162,106 @@
 
 </main>
 
-<!-- ─── 島風生活向けノート ─── -->
+<!-- ─── 業界の3分類 ─── -->
 <section class="note-section">
+  <div class="note-card" style="margin-bottom:16px;background:#fff;border-color:var(--border);">
+    <h3 style="color:var(--text);font-size:14px;">EC メルマガ 3つの基本アプローチ <span style="font-weight:400;font-size:11px;color:var(--text-sub);">（Benchmark Email Japan分類）</span></h3>
+    <div style="display:grid;grid-template-columns:1fr;gap:12px;margin-top:12px;">
+      <div style="background:#fdf8f0;padding:14px;border-radius:8px;border-left:4px solid var(--tag-sale);">
+        <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:4px;">① 魅せる型 <span style="font-weight:400;color:var(--text-sub);">— ビジュアル重視</span></div>
+        <div style="font-size:11px;color:var(--text-sub);line-height:1.6;">大きな写真と最小限のテキストでブランドの世界観を表現。高単価商品・ギフト向き。<br>→ 上のギャラリーでは <strong>ストーリー型</strong>・<strong>季節の挨拶型</strong> が該当</div>
+      </div>
+      <div style="background:#f0f7f2;padding:14px;border-radius:8px;border-left:4px solid var(--tag-story);">
+        <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:4px;">② 伝える型 <span style="font-weight:400;color:var(--text-sub);">— 説得・情報伝達重視</span></div>
+        <div style="font-size:11px;color:var(--text-sub);line-height:1.6;">商品の背景・機能・使い方を丁寧に解説。水産加工品のような「知ると欲しくなる」商材に最適。<br>→ <strong>単品紹介型</strong>・<strong>レシピ型</strong>・<strong>お客様の声型</strong> が該当</div>
+      </div>
+      <div style="background:#f0f0f8;padding:14px;border-radius:8px;border-left:4px solid var(--tag-rank);">
+        <div style="font-size:12px;font-weight:700;color:var(--text);margin-bottom:4px;">③ 数で勝負型 <span style="font-weight:400;color:var(--text-sub);">— カタログ・一覧重視</span></div>
+        <div style="font-size:11px;color:var(--text-sub);line-height:1.6;">商品を一覧で並べて選ばせる。品揃えが強みの場合やセール時に効果的。<br>→ <strong>グリッド型</strong>・<strong>ランキング型</strong>・<strong>セール型</strong> が該当</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── デザインのベストプラクティス ─── -->
+<section class="note-section" style="padding-top:0;">
+  <div class="note-card" style="margin-bottom:16px;background:#fff;border-color:var(--border);">
+    <h3 style="color:var(--text);font-size:14px;">メルマガ設計のベストプラクティス</h3>
+    <div style="margin-top:12px;font-size:11px;color:var(--text-sub);line-height:1.8;">
+      <table style="width:100%;border-collapse:collapse;font-size:11px;">
+        <tr style="border-bottom:1px solid #eee;">
+          <td style="padding:6px 8px;font-weight:600;color:var(--text);white-space:nowrap;vertical-align:top;">横幅</td>
+          <td style="padding:6px 8px;">600px以下（メールクライアント対応の鉄則）</td>
+        </tr>
+        <tr style="border-bottom:1px solid #eee;">
+          <td style="padding:6px 8px;font-weight:600;color:var(--text);white-space:nowrap;vertical-align:top;">カラム数</td>
+          <td style="padding:6px 8px;">最大2列。3列以上はモバイルで破綻する</td>
+        </tr>
+        <tr style="border-bottom:1px solid #eee;">
+          <td style="padding:6px 8px;font-weight:600;color:var(--text);white-space:nowrap;vertical-align:top;">フォント</td>
+          <td style="padding:6px 8px;">本文15pt以上 / 見出し含め最大2種類</td>
+        </tr>
+        <tr style="border-bottom:1px solid #eee;">
+          <td style="padding:6px 8px;font-weight:600;color:var(--text);white-space:nowrap;vertical-align:top;">配色比率</td>
+          <td style="padding:6px 8px;">ベース色70% : サブ色25% : アクセント5%</td>
+        </tr>
+        <tr style="border-bottom:1px solid #eee;">
+          <td style="padding:6px 8px;font-weight:600;color:var(--text);white-space:nowrap;vertical-align:top;">画像枚数</td>
+          <td style="padding:6px 8px;">4〜6枚以内。テキスト:画像 = 60:40 が理想</td>
+        </tr>
+        <tr style="border-bottom:1px solid #eee;">
+          <td style="padding:6px 8px;font-weight:600;color:var(--text);white-space:nowrap;vertical-align:top;">CTA</td>
+          <td style="padding:6px 8px;">1メール1主要CTA。タップ領域44×44px以上</td>
+        </tr>
+        <tr style="border-bottom:1px solid #eee;">
+          <td style="padding:6px 8px;font-weight:600;color:var(--text);white-space:nowrap;vertical-align:top;">閲読時間</td>
+          <td style="padding:6px 8px;">平均9秒。70%の読者は1分以内に離脱する</td>
+        </tr>
+        <tr>
+          <td style="padding:6px 8px;font-weight:600;color:var(--text);white-space:nowrap;vertical-align:top;">ダークモード</td>
+          <td style="padding:6px 8px;">ロゴ・画像の背景透過に注意。テスト必須</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ─── メルマガの基本5層構造 ─── -->
+<section class="note-section" style="padding-top:0;">
+  <div class="note-card" style="margin-bottom:16px;background:#fff;border-color:var(--border);">
+    <h3 style="color:var(--text);font-size:14px;">全パターン共通：メルマガの基本5層構造</h3>
+    <div style="margin-top:12px;display:flex;flex-direction:column;gap:0;">
+      <div style="display:flex;align-items:center;gap:8px;padding:10px;background:#f8f7f5;border-radius:8px 8px 0 0;border:1px solid #eee;">
+        <span style="background:var(--accent);color:#fff;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;">1</span>
+        <span style="font-size:12px;font-weight:600;color:var(--text);">ヘッダー</span>
+        <span style="font-size:10px;color:var(--text-sub);margin-left:auto;">ロゴ・ブランド認知</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;padding:10px;background:#f0f5f8;border-left:1px solid #eee;border-right:1px solid #eee;">
+        <span style="background:var(--accent);color:#fff;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;">2</span>
+        <span style="font-size:12px;font-weight:600;color:var(--text);">ヒーロー / リード</span>
+        <span style="font-size:10px;color:var(--text-sub);margin-left:auto;">注意を引く・開封の報酬</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;padding:10px;background:#f5f0f0;border-left:1px solid #eee;border-right:1px solid #eee;">
+        <span style="background:var(--tag-food);color:#fff;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;">3</span>
+        <span style="font-size:12px;font-weight:600;color:var(--text);">メインコンテンツ</span>
+        <span style="font-size:10px;color:var(--text-sub);margin-left:auto;">本題（商品・記事・告知）</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;padding:10px;background:#f0f5f0;border-left:1px solid #eee;border-right:1px solid #eee;">
+        <span style="background:var(--tag-story);color:#fff;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;">4</span>
+        <span style="font-size:12px;font-weight:600;color:var(--text);">CTA（行動喚起）</span>
+        <span style="font-size:10px;color:var(--text-sub);margin-left:auto;">ボタン・リンク</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;padding:10px;background:#f5f5f5;border-radius:0 0 8px 8px;border:1px solid #eee;">
+        <span style="background:#999;color:#fff;font-size:10px;font-weight:700;padding:2px 8px;border-radius:10px;">5</span>
+        <span style="font-size:12px;font-weight:600;color:var(--text);">フッター</span>
+        <span style="font-size:10px;color:var(--text-sub);margin-left:auto;">配信停止・会社情報</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 島風生活向けノート ─── -->
+<section class="note-section" style="padding-top:0;">
   <div class="note-card">
     <h3>島風生活への活用メモ</h3>
     <ul>
@@ -1171,6 +1271,8 @@
       <li><strong>セール型</strong>は年2〜3回の大型セールに限定すると効果が高い（頻発するとブランド毀損）</li>
       <li>基本構成は <strong>ヘッダー → メインコンテンツ → 商品 → CTA → フッター</strong> の5層構造を崩さない</li>
       <li>メルマガの幅は <strong>600px以下</strong> を推奨（メールクライアント対応）</li>
+      <li>島風生活は「伝える型」を軸に、月1でランキング型を織り交ぜるのがおすすめ</li>
+      <li>ギフト需要（お歳暮・お中元）の時期には <strong>お客様の声型</strong> が特に効果的</li>
     </ul>
   </div>
 </section>
