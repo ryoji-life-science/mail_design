@@ -1,0 +1,70 @@
+{
+  "fiscalYear": 18,
+  "fiscalYearStart": "2025-10",
+  "fiscalYearEnd": "2026-09",
+  "revenue": [
+    {
+      "accountCode": "4100",
+      "accountName": "売上高",
+      "departmentCode": "JINZAI",
+      "monthly": [600, 620, 610, 570, 590, 610, 540, 560, 550, 470, 440, 500]
+    },
+    {
+      "accountCode": "4100",
+      "accountName": "売上高",
+      "departmentCode": "SHUPPAN",
+      "monthly": [50, 50, 50, 51, 51, 52, 48, 49, 50, 47, 46, 49]
+    },
+    {
+      "accountCode": "4100",
+      "accountName": "売上高",
+      "departmentCode": "CHIIKI",
+      "monthly": [180, 185, 183, 170, 178, 185, 205, 215, 210, 155, 145, 175]
+    },
+    {
+      "accountCode": "4100",
+      "accountName": "売上高",
+      "departmentCode": "SONOTA",
+      "monthly": [5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5]
+    }
+  ],
+  "costOfSales": [
+    {
+      "accountCode": "5101",
+      "accountName": "外注費",
+      "monthly": [195, 200, 198, 190, 195, 200, 185, 190, 192, 165, 160, 180]
+    }
+  ],
+  "sgaExpenses": [
+    {
+      "accountCode": "6101",
+      "accountName": "給料手当",
+      "monthly": [250, 250, 250, 250, 250, 250, 250, 250, 250, 250, 250, 250]
+    },
+    {
+      "accountCode": "6100",
+      "accountName": "役員報酬",
+      "monthly": [80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80, 80]
+    },
+    {
+      "accountCode": "6104",
+      "accountName": "法定福利費",
+      "monthly": [45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45, 45]
+    },
+    {
+      "accountCode": "6125",
+      "accountName": "地代家賃",
+      "monthly": [35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35]
+    },
+    {
+      "accountCode": "6136",
+      "accountName": "業務委託費",
+      "monthly": [20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20]
+    },
+    {
+      "accountCode": "6199",
+      "accountName": "その他販管費",
+      "monthly": [53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53, 53]
+    }
+  ]
+}

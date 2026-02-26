@@ -1,0 +1,37 @@
+[
+  {
+    "yearMonth": "2026-01",
+    "allocations": [
+      {
+        "staffName": "岡部",
+        "monthlyCost": 600000,
+        "departments": { "JINZAI": 35, "SHUPPAN": 10, "CHIIKI": 5, "SONOTA": 30, "HQ": 20 }
+      },
+      {
+        "staffName": "長島",
+        "monthlyCost": 500000,
+        "departments": { "JINZAI": 45, "SHUPPAN": 65, "CHIIKI": 0, "SONOTA": 0, "HQ": 0 }
+      },
+      {
+        "staffName": "萩原",
+        "monthlyCost": 450000,
+        "departments": { "JINZAI": 5, "SHUPPAN": 10, "CHIIKI": 80, "SONOTA": 0, "HQ": 5 }
+      },
+      {
+        "staffName": "吉村",
+        "monthlyCost": 450000,
+        "departments": { "JINZAI": 0, "SHUPPAN": 0, "CHIIKI": 15, "SONOTA": 70, "HQ": 15 }
+      },
+      {
+        "staffName": "岡本",
+        "monthlyCost": 400000,
+        "departments": { "JINZAI": 0, "SHUPPAN": 0, "CHIIKI": 0, "SONOTA": 5, "HQ": 95 }
+      },
+      {
+        "staffName": "三重野",
+        "monthlyCost": 350000,
+        "departments": { "JINZAI": 0, "SHUPPAN": 0, "CHIIKI": 0, "SONOTA": 5, "HQ": 95 }
+      }
+    ]
+  }
+]

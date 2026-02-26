@@ -1,0 +1,32 @@
+{
+  "name": "financial-report-generator",
+  "version": "1.0.0",
+  "description": "財務経営資料の自動作成ツール - マネーフォワードCSV連携・部門別管理会計・予実対比",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "dev": "ts-node src/index.ts",
+    "generate": "ts-node src/index.ts generate",
+    "import:mf": "ts-node src/index.ts import-mf",
+    "lint": "eslint src/**/*.ts",
+    "test": "jest"
+  },
+  "dependencies": {
+    "commander": "^12.1.0",
+    "csv-parse": "^5.5.6",
+    "dayjs": "^1.11.13",
+    "exceljs": "^4.4.0",
+    "pdfkit": "^0.15.0",
+    "pdfkit-table": "^0.1.99"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/pdfkit": "^0.13.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
