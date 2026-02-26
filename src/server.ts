@@ -31,6 +31,8 @@ import * as fs from 'fs';
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// プロキシ環境対応
+app.set('trust proxy', true);
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
@@ -157,6 +159,6 @@ app.get('/{*path}', (_req, res) => {
   res.sendFile(path.join(__dirname, '..', 'public', 'index.html'));
 });
 
-app.listen(PORT, () => {
-  console.log(`\n🚀 財務経営資料ツール起動中: http://localhost:${PORT}\n`);
+app.listen(Number(PORT), '0.0.0.0', () => {
+  console.log(`\n🚀 財務経営資料ツール起動中: http://0.0.0.0:${PORT}\n`);
 });
