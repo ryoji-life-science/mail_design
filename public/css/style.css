@@ -1,0 +1,323 @@
+/* ============================================================
+   財務経営資料 - Web UI スタイル
+   ============================================================ */
+
+:root {
+  --dark-blue: #1F4E79;
+  --mid-blue: #4472C4;
+  --light-blue: #D6E4F0;
+  --very-light-blue: #EEF3F8;
+  --brown: #8B4513;
+  --red: #FF0000;
+  --bg: #f5f5f5;
+  --card-bg: #ffffff;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Hiragino Kaku Gothic Pro', 'Meiryo', 'MS Gothic', sans-serif;
+  background: var(--bg);
+  color: #333;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ── ナビゲーション ── */
+.nav {
+  background: var(--dark-blue);
+  color: #fff;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  height: 56px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.nav-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-right: 32px;
+  white-space: nowrap;
+}
+
+.nav-tabs {
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+}
+
+.nav-tab {
+  padding: 8px 16px;
+  border-radius: 6px 6px 0 0;
+  cursor: pointer;
+  font-size: 13px;
+  color: #ccc;
+  transition: all 0.2s;
+  white-space: nowrap;
+  border: none;
+  background: transparent;
+  font-family: inherit;
+}
+
+.nav-tab:hover { color: #fff; background: rgba(255,255,255,0.1); }
+.nav-tab.active { color: #fff; background: var(--mid-blue); font-weight: bold; }
+
+.nav-actions {
+  margin-left: auto;
+  display: flex;
+  gap: 8px;
+}
+
+.btn-download {
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.3);
+  padding: 6px 14px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  font-family: inherit;
+  transition: background 0.2s;
+}
+.btn-download:hover { background: rgba(255,255,255,0.3); }
+
+/* ── コンテンツエリア ── */
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 20px;
+}
+
+.page { display: none; }
+.page.active { display: block; }
+
+/* ── カード ── */
+.card {
+  background: var(--card-bg);
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+
+/* ── タブバッジ（1Q等） ── */
+.tab-badge {
+  display: inline-block;
+  padding: 4px 16px;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 14px;
+  color: #fff;
+  margin-bottom: 8px;
+}
+.tab-badge.blue { background: var(--dark-blue); }
+.tab-badge.brown { background: var(--brown); }
+
+/* ── 見出し ── */
+.report-header {
+  padding: 20px 24px 0;
+}
+
+.report-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 8px 0;
+}
+
+.report-subtitle {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.report-comment {
+  font-size: 13px;
+  margin: 8px 0;
+  padding: 8px 12px;
+  background: #FFF8E1;
+  border-left: 3px solid #FFA000;
+  border-radius: 0 4px 4px 0;
+}
+
+/* ── テーブル共通 ── */
+.report-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.report-table th {
+  background: var(--mid-blue);
+  color: #fff;
+  padding: 8px 12px;
+  text-align: center;
+  font-weight: bold;
+  border: 1px solid var(--mid-blue);
+  white-space: nowrap;
+}
+
+.report-table td {
+  padding: 6px 12px;
+  border: 1px solid #ddd;
+}
+
+.report-table td.num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.report-table td.pct {
+  text-align: right;
+  font-weight: bold;
+}
+
+.report-table td.label {
+  font-weight: 500;
+}
+
+.report-table td.indent {
+  padding-left: 28px;
+}
+
+/* 交互行 */
+.report-table tbody tr:nth-child(even) { background: var(--very-light-blue); }
+.report-table tbody tr:nth-child(odd)  { background: #fff; }
+
+/* 小計・合計行 */
+.report-table tr.subtotal td { background: var(--light-blue); font-weight: bold; }
+.report-table tr.total td { background: #B4C6E7; font-weight: bold; }
+.report-table tr.rate-row td { font-weight: bold; font-size: 12px; }
+
+/* 赤ハイライト */
+.highlight-red {
+  border: 2px solid var(--red) !important;
+  color: var(--red);
+  font-weight: bold;
+}
+
+/* マイナス値 */
+.negative { color: var(--red); }
+
+/* ── 通期見通しグラフ ── */
+.chart-container {
+  padding: 24px;
+  text-align: center;
+}
+
+.chart-canvas {
+  max-width: 100%;
+  height: 400px;
+}
+
+.chart-legend {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 16px;
+  font-size: 13px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.legend-line {
+  width: 30px;
+  height: 3px;
+}
+
+.legend-line.budget { background: var(--mid-blue); }
+.legend-line.actual { background: #E74C3C; }
+.legend-line.forecast { background: #E74C3C; border-top: 2px dashed #E74C3C; height: 0; }
+
+/* ── 管理会計の稼働配分テーブル ── */
+.allocation-table th { font-size: 12px; padding: 6px 8px; }
+.allocation-table td { font-size: 12px; padding: 4px 8px; text-align: right; }
+.allocation-table td:first-child { text-align: left; font-weight: bold; }
+
+/* ── 財務諸表タブ ── */
+.fs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 900px) {
+  .fs-grid { grid-template-columns: 1fr; }
+}
+
+.fs-card {
+  background: var(--card-bg);
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  overflow: hidden;
+}
+
+.fs-card-title {
+  background: var(--dark-blue);
+  color: #fff;
+  padding: 10px 16px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.fs-card-body { padding: 16px; }
+
+/* ── ローディング ── */
+.loading {
+  text-align: center;
+  padding: 40px;
+  color: #999;
+}
+
+.spinner {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  border: 3px solid #ddd;
+  border-top-color: var(--mid-blue);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── 四半期セレクタ ── */
+.quarter-selector {
+  display: flex;
+  gap: 8px;
+  margin: 16px 24px;
+}
+
+.quarter-btn {
+  padding: 6px 20px;
+  border: 2px solid var(--mid-blue);
+  border-radius: 4px;
+  background: #fff;
+  color: var(--mid-blue);
+  font-weight: bold;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.2s;
+}
+
+.quarter-btn:hover { background: var(--very-light-blue); }
+.quarter-btn.active { background: var(--mid-blue); color: #fff; }
+
+/* ── 月次推移テーブル ── */
+.trend-table th, .trend-table td {
+  padding: 4px 8px;
+  font-size: 11px;
+  min-width: 80px;
+}
+
+/* ── 比率テーブル ── */
+.ratio-table { width: 100%; }
+.ratio-table td:nth-child(2) { text-align: right; font-weight: bold; width: 100px; }
+.ratio-table td:nth-child(3) { font-size: 11px; color: #666; }

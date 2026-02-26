@@ -5,18 +5,20 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
-    "start": "node dist/index.js",
-    "dev": "ts-node src/index.ts",
+    "start": "node dist/server.js",
+    "dev": "ts-node src/server.ts",
     "generate": "ts-node src/index.ts generate",
     "import:mf": "ts-node src/index.ts import-mf",
     "lint": "eslint src/**/*.ts",
     "test": "jest"
   },
   "dependencies": {
+    "@types/express": "^5.0.0",
     "commander": "^12.1.0",
     "csv-parse": "^5.5.6",
     "dayjs": "^1.11.13",
     "exceljs": "^4.4.0",
+    "express": "^5.2.1",
     "pdfkit": "^0.15.0",
     "pdfkit-table": "^0.1.99"
   },
