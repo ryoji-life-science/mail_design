@@ -1,0 +1,47 @@
+{
+  "models": {
+    "providers": {
+      "ollama": {
+        "baseUrl": "http://127.0.0.1:11434/v1",
+        "apiKey": "ollama-local",
+        "api": "openai-completions"
+      }
+    },
+    "registry": {
+      "ollama/qwen3.5": {
+        "contextWindow": 131072,
+        "maxTokens": 8192,
+        "reasoning": false,
+        "costs": {
+          "inputPerMillion": 0,
+          "outputPerMillion": 0
+        }
+      },
+      "ollama/qwen3.5:14b": {
+        "contextWindow": 131072,
+        "maxTokens": 8192,
+        "reasoning": false,
+        "costs": {
+          "inputPerMillion": 0,
+          "outputPerMillion": 0
+        }
+      },
+      "ollama/qwen3.5:32b": {
+        "contextWindow": 131072,
+        "maxTokens": 8192,
+        "reasoning": false,
+        "costs": {
+          "inputPerMillion": 0,
+          "outputPerMillion": 0
+        }
+      }
+    }
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "ollama/qwen3.5"
+      }
+    }
+  }
+}
